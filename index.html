@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Auth Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Пример JWT авторизации</h1>
+        
+        <div class="card">
+            <h2>Регистрация</h2>
+            <form id="registerForm">
+                <input type="text" id="registerUsername" placeholder="Имя пользователя" required>
+                <input type="password" id="registerPassword" placeholder="Пароль" required>
+                <button type="submit">Регистрация</button>
+            </form>
+            <p id="registerMessage"></p>
+        </div>
+        
+        <div class="card">
+            <h2>Вход</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Имя пользователя" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
+                <button type="submit">Вход</button>
+            </form>
+            <p id="loginMessage"></p>
+        </div>
+        
+        <div class="card">
+            <h2>Защищенные данные</h2>
+            <button id="fetchProtectedData">Получить защищенные данные</button>
+            <p id="protectedData"></p>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
