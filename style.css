@@ -75,6 +75,10 @@ p {
     text-align: center;
 }
 
+#loginMessage, #registerMessage, #protectedData {
+    word-break: break-all;
+}
+
 #loginMessage, #registerMessage {
     font-weight: bold;
 }
@@ -84,5 +88,4 @@ p {
     padding: 15px;
     border-radius: 4px;
     border-left: 4px solid #3498db;
-    word-break: break-all;
 }

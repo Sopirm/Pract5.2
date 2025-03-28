@@ -10,7 +10,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e)=> {
     });
     const result = await response.json();
     document.getElementById('registerMessage').textContent = result.message ||
-        'Registration failed';
+        'Неудачная регистрация';
 });
 
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
@@ -25,16 +25,18 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const result = await response.json();
     if (response.ok) {
         token = result.token;
-        document.getElementById('loginMessage').textContent = 'Login successful!';
+        const loginMessage = document.getElementById('loginMessage');
+        loginMessage.textContent = `Успешный вход! Токен: ${token}`;
+        loginMessage.style.wordBreak = 'break-all';
     } else {
         document.getElementById('loginMessage').textContent = result.message
-            || 'Login failed';
+            || 'Неудачный вход';
     }
 });
 
 document.getElementById('fetchProtectedData').addEventListener('click', async ()=>{
     if (!token) {
-        document.getElementById('protectedData').textContent = 'Please login first';
+        document.getElementById('protectedData').textContent = 'Сначала войдите в аккаунт';
         return;
     }
     const response = await fetch('http://localhost:3000/protected', {
@@ -45,6 +47,6 @@ document.getElementById('fetchProtectedData').addEventListener('click', async ()
         document.getElementById('protectedData').textContent =
             JSON.stringify(result);
     } else {
-        document.getElementById('protectedData').textContent = 'Access denied';
+        document.getElementById('protectedData').textContent = 'Доступ запрещен';
     }
 });
